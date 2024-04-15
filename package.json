@@ -23,7 +23,10 @@
     "dotenv": "^16.4.5",
     "dotenv-expand": "^11.0.6",
     "next": "^14.1.4",
+    "pg": "^8.11.5",
+    "pg-hstore": "^2.3.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sequelize": "^6.37.3"
   }
 }

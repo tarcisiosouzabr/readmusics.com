@@ -5,7 +5,6 @@
   margin: 5em auto;
   padding: 3em 0 0 3em;
   position: relative;
-  border: 1px solid #160801;
   border-radius: 1em;
 }
 
@@ -31,7 +30,7 @@ ul .white {
   background: linear-gradient(to bottom, #eee 0%, #fff 100%);
 }
 
-ult .white:active {
+ul .white:active {
   border-top: 1px solid #777;
   border-left: 1px solid #999;
   border-bottom: 1px solid #999;
@@ -71,4 +70,33 @@ ult .white:active {
 .e,
 .c {
   margin: 0 0 0 -1em;
+}
+
+.sheetContent {
+  height: 13em;
+  width: 65em;
+  margin: 2em auto;
+  padding: 3em 0 0 0;
+  border: 1px solid black;
+}
+
+.sheetLine {
+  margin-top: 1em;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.note {
+  padding-left: 2em;
+  height: 6em;
+  width: 3em;
+  display: inline-block;
+}
+
+.noteContent {
+  position: fixed;
+}
+
+.noteA {
+  padding-top: 2em;
 }

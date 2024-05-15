@@ -1,6 +1,6 @@
 import styles from "styles/styles.module.css";
 
-function Home() {
+function KeyBoard() {
   return (
     <ul className={styles.set}>
       <li className={[styles.key, styles.white, styles.c].join(" ")}></li>
@@ -16,6 +16,26 @@ function Home() {
       <li className={[styles.key, styles.black, styles.as].join(" ")}></li>
       <li className={[styles.key, styles.white, styles.b].join(" ")}></li>
     </ul>
+  );
+}
+
+function Home() {
+  return (
+    <div>
+      <div className={styles.sheetContent}>
+        <div className={styles.noteContent}>
+          <div className={[styles.note, styles.noteA].join(" ")}>O</div>
+          <div className={styles.note}>O</div>
+          <div className={styles.note}>O</div>
+        </div>
+        <div className={styles.sheetLine}></div>
+        <div className={styles.sheetLine}></div>
+        <div className={styles.sheetLine}></div>
+        <div className={styles.sheetLine}></div>
+        <div className={styles.sheetLine}></div>
+      </div>
+      <KeyBoard></KeyBoard>
+    </div>
   );
 }
 

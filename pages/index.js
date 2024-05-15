@@ -24,9 +24,12 @@ function Home() {
     <div>
       <div className={styles.sheetContent}>
         <div className={styles.noteContent}>
-          <div className={[styles.note, styles.noteA].join(" ")}>O</div>
-          <div className={styles.note}>O</div>
-          <div className={styles.note}>O</div>
+          <div className={styles.note}>
+            <div className={styles.noteA}>O</div>
+          </div>
+          <div className={styles.note}>
+            <div className={styles.noteB}>O</div>
+          </div>
         </div>
         <div className={styles.sheetLine}></div>
         <div className={styles.sheetLine}></div>

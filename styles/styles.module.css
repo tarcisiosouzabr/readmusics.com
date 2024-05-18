@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "Musiq";
+  src:
+    local("MusiQwik"),
+    url("../fonts/Musiqwik-zRl1.ttf") format("truetype");
+}
+
+.fontM {
+  font-family: "Musiq";
+  font-size: 150px;
+}
+
 .set {
   box-sizing: border-box;
   height: 18em;

@@ -22,6 +22,7 @@ function KeyBoard() {
 function Home() {
   return (
     <div>
+      <h1 className={styles.fontM}>AA AA AA A</h1>
       <div className={styles.sheetContent}>
         <div className={styles.noteContent}>
           <div className={styles.note}>

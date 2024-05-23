@@ -13,9 +13,8 @@
 .set {
   box-sizing: border-box;
   height: 18em;
-  width: 34em;
-  margin: 5em auto;
-  padding: 3em 0 0 3em;
+  width: 29em;
+  padding: 3em 0 0 0;
   position: relative;
   border-radius: 1em;
 }
@@ -117,4 +116,15 @@ ul .white:active {
 .noteB {
   position: fixed;
   top: 6.5em;
+}
+
+.keyboardContent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.keyBoardItem {
+  display: inline-flex;
 }

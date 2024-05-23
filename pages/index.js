@@ -22,23 +22,11 @@ function KeyBoard() {
 function Home() {
   return (
     <div>
-      <h1 className={styles.fontM}>AA AA AA A</h1>
-      <div className={styles.sheetContent}>
-        <div className={styles.noteContent}>
-          <div className={styles.note}>
-            <div className={styles.noteA}>O</div>
-          </div>
-          <div className={styles.note}>
-            <div className={styles.noteB}>O</div>
-          </div>
-        </div>
-        <div className={styles.sheetLine}></div>
-        <div className={styles.sheetLine}></div>
-        <div className={styles.sheetLine}></div>
-        <div className={styles.sheetLine}></div>
-        <div className={styles.sheetLine}></div>
+      <h1 className={styles.fontM}>=&===r=s=t=u=v=w=x=y=z={"{"}=|=</h1>
+      <div className={styles.keyboardContent}>
+        <KeyBoard className={styles.keyBoardItem}></KeyBoard>
+        <KeyBoard className={styles.keyBoardItem}></KeyBoard>
       </div>
-      <KeyBoard></KeyBoard>
     </div>
   );
 }

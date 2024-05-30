@@ -1,9 +1,9 @@
 import styles from "styles/styles.module.css";
 
-function KeyBoard() {
+function KeyBoard({ octave, onKeyClick }) {
   function handleClick(e) {
     const value = e.currentTarget.getAttribute("data-value");
-    console.log(value);
+    onKeyClick(octave, value);
   }
   return (
     <ul className={styles.set}>
@@ -72,12 +72,23 @@ function KeyBoard() {
 }
 
 function Home() {
+  function onKeyClick(octave, keyValue) {
+    console.log(`${octave} - ${keyValue}`);
+  }
   return (
     <div>
       <h1 className={styles.fontM}>=&===r=s=t=u=v=w=x=y=z={"{"}=|=</h1>
       <div className={styles.keyboardContent}>
-        <KeyBoard className={styles.keyBoardItem}></KeyBoard>
-        <KeyBoard className={styles.keyBoardItem}></KeyBoard>
+        <KeyBoard
+          className={styles.keyBoardItem}
+          onKeyClick={onKeyClick}
+          octave={"C1"}
+        ></KeyBoard>
+        <KeyBoard
+          className={styles.keyBoardItem}
+          onKeyClick={onKeyClick}
+          octave={"C2"}
+        ></KeyBoard>
       </div>
     </div>
   );

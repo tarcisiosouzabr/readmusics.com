@@ -72,12 +72,39 @@ function KeyBoard({ octave, onKeyClick }) {
 }
 
 function Home() {
+  let noteToCheckIndex = 1;
   function onKeyClick(octave, keyValue) {
-    console.log(`${octave} - ${keyValue}`);
+    if (noteToCheckIndex >= notesMarks.length) {
+      return;
+    }
+    let noteFromKeyboard = octave + keyValue;
+    if (noteFromKeyboard === notesMarks[noteToCheckIndex].note) {
+      console.log("Correct");
+    } else {
+      console.log("Incorrect");
+    }
+    noteToCheckIndex++;
   }
+  const notesMarks = [
+    { noteRemark: "&", note: "next" },
+    { noteRemark: "r", note: "C1C" },
+    { noteRemark: "s", note: "C1D" },
+    { noteRemark: "t", note: "C1E" },
+    { noteRemark: "u", note: "C1F" },
+    { noteRemark: "v", note: "C1G" },
+    { noteRemark: "w", note: "C1A" },
+    { noteRemark: "x", note: "C1B" },
+    { noteRemark: "y", note: "C2C" },
+    { noteRemark: "z", note: "C2D" },
+    { noteRemark: "{", note: "C2E" },
+    { noteRemark: "|", note: "C2F" },
+  ];
+  const notesElements = notesMarks.map((note) => (
+    <span>={note.noteRemark}</span>
+  ));
   return (
     <div>
-      <h1 className={styles.fontM}>=&===r=s=t=u=v=w=x=y=z={"{"}=|=</h1>
+      <h1 className={styles.fontM}>{notesElements}</h1>
       <div className={styles.keyboardContent}>
         <KeyBoard
           className={styles.keyBoardItem}

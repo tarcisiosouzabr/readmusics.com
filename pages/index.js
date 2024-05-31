@@ -100,7 +100,7 @@ function Home() {
     { noteRemark: "|", note: "C2F" },
   ];
   const notesElements = notesMarks.map((note) => (
-    <span>={note.noteRemark}</span>
+    <span key={note.note}>={note.noteRemark}</span>
   ));
   return (
     <div>

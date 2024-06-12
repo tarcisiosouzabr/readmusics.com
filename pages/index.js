@@ -1,4 +1,5 @@
 import styles from "styles/styles.module.css";
+import "styles/styles.module.css";
 import React, { useState } from "react";
 
 function KeyBoard({ octave, onKeyClick }) {
@@ -98,7 +99,7 @@ function Home() {
     if (noteFromKeyboard === notesMarks[noteToCheckIndex].note) {
       const myNextList = [...notesMarks];
       const noteRemark = myNextList.find((a) => a.note === noteFromKeyboard);
-      noteRemark.customClass = "correctNote";
+      noteRemark.customClass = styles.correctNote;
       setMyList(myNextList);
     } else {
       console.log("Incorrect");

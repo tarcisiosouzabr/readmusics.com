@@ -128,3 +128,11 @@ ul .white:active {
 .keyBoardItem {
   display: inline-flex;
 }
+
+.correctNote {
+  color: red;
+}
+
+.wrongnote {
+  color: greenyellow;
+}

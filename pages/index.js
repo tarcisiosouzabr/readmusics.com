@@ -1,4 +1,5 @@
 import styles from "styles/styles.module.css";
+import React, { useState } from "react";
 
 function KeyBoard({ octave, onKeyClick }) {
   function handleClick(e) {
@@ -73,35 +74,44 @@ function KeyBoard({ octave, onKeyClick }) {
 
 function Home() {
   let noteToCheckIndex = 1;
+  const initialNotesMarks = [
+    { noteRemark: "&", note: "next", customClass: "" },
+    { noteRemark: "r", note: "C1C", customClass: "" },
+    { noteRemark: "s", note: "C1D", customClass: "" },
+    { noteRemark: "t", note: "C1E", customClass: "" },
+    { noteRemark: "u", note: "C1F", customClass: "" },
+    { noteRemark: "v", note: "C1G", customClass: "" },
+    { noteRemark: "w", note: "C1A", customClass: "" },
+    { noteRemark: "x", note: "C1B", customClass: "" },
+    { noteRemark: "y", note: "C2C", customClass: "" },
+    { noteRemark: "z", note: "C2D", customClass: "" },
+    { noteRemark: "{", note: "C2E", customClass: "" },
+    { noteRemark: "|", note: "C2F", customClass: "" },
+  ];
+
+  const [notesMarks, setMyList] = useState(initialNotesMarks);
   function onKeyClick(octave, keyValue) {
     if (noteToCheckIndex >= notesMarks.length) {
       return;
     }
     let noteFromKeyboard = octave + keyValue;
     if (noteFromKeyboard === notesMarks[noteToCheckIndex].note) {
-      console.log("Correct");
+      const myNextList = [...notesMarks];
+      const noteRemark = myNextList.find((a) => a.note === noteFromKeyboard);
+      noteRemark.customClass = "correctNote";
+      setMyList(myNextList);
     } else {
       console.log("Incorrect");
     }
     noteToCheckIndex++;
   }
-  const notesMarks = [
-    { noteRemark: "&", note: "next" },
-    { noteRemark: "r", note: "C1C" },
-    { noteRemark: "s", note: "C1D" },
-    { noteRemark: "t", note: "C1E" },
-    { noteRemark: "u", note: "C1F" },
-    { noteRemark: "v", note: "C1G" },
-    { noteRemark: "w", note: "C1A" },
-    { noteRemark: "x", note: "C1B" },
-    { noteRemark: "y", note: "C2C" },
-    { noteRemark: "z", note: "C2D" },
-    { noteRemark: "{", note: "C2E" },
-    { noteRemark: "|", note: "C2F" },
-  ];
   const notesElements = notesMarks.map((note) => (
-    <span key={note.note}>={note.noteRemark}</span>
+    <Note key={note.note} note={note}></Note>
   ));
+
+  function Note({ note }) {
+    return <span className={note.customClass}>={note.noteRemark}</span>;
+  }
   return (
     <div>
       <h1 className={styles.fontM}>{notesElements}</h1>

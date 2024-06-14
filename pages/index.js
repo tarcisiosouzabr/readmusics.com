@@ -92,6 +92,7 @@ function Home() {
 
   const [notesMarks, setMyList] = useState(initialNotesMarks);
   function onKeyClick(octave, keyValue) {
+    console.log(noteToCheckIndex);
     if (noteToCheckIndex >= notesMarks.length) {
       return;
     }
@@ -107,11 +108,13 @@ function Home() {
     noteToCheckIndex++;
   }
   const notesElements = notesMarks.map((note) => (
-    <Note key={note.note} note={note}></Note>
+    <span key={note.note}>
+      =<Note note={note}></Note>
+    </span>
   ));
 
   function Note({ note }) {
-    return <span className={note.customClass}>={note.noteRemark}</span>;
+    return <span className={note.customClass}>{note.noteRemark}</span>;
   }
   return (
     <div>

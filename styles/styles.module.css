@@ -130,9 +130,9 @@ ul .white:active {
 }
 
 .correctNote {
-  color: red;
+  color: greenyellow;
 }
 
 .wrongnote {
-  color: greenyellow;
+  color: red;
 }

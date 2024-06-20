@@ -74,7 +74,6 @@ function KeyBoard({ octave, onKeyClick }) {
 }
 
 function Home() {
-  let noteToCheckIndex = 1;
   const initialNotesMarks = [
     { noteRemark: "&", note: "next", customClass: "" },
     { noteRemark: "r", note: "C1C", customClass: "" },
@@ -91,21 +90,28 @@ function Home() {
   ];
 
   const [notesMarks, setMyList] = useState(initialNotesMarks);
+  const [noteToCheckIndex, setNoteIndex] = useState(1);
+
   function onKeyClick(octave, keyValue) {
-    console.log(noteToCheckIndex);
     if (noteToCheckIndex >= notesMarks.length) {
       return;
     }
     let noteFromKeyboard = octave + keyValue;
+    let classToApplie = "";
     if (noteFromKeyboard === notesMarks[noteToCheckIndex].note) {
-      const myNextList = [...notesMarks];
-      const noteRemark = myNextList.find((a) => a.note === noteFromKeyboard);
-      noteRemark.customClass = styles.correctNote;
-      setMyList(myNextList);
+      classToApplie = styles.correctNote;
     } else {
-      console.log("Incorrect");
+      classToApplie = styles.wrongNote;
     }
-    noteToCheckIndex++;
+    updateNoteMarksList(notesMarks[noteToCheckIndex].note, classToApplie);
+    setNoteIndex(noteToCheckIndex + 1);
+  }
+
+  function updateNoteMarksList(noteFromKeyboard, classToApplie) {
+    const myNextList = [...notesMarks];
+    const noteRemark = myNextList.find((a) => a.note === noteFromKeyboard);
+    noteRemark.customClass = classToApplie;
+    setMyList(myNextList);
   }
   const notesElements = notesMarks.map((note) => (
     <span key={note.note}>

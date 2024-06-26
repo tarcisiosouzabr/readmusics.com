@@ -2,6 +2,8 @@ import styles from "styles/styles.module.css";
 import "styles/styles.module.css";
 import React, { useState } from "react";
 
+const myAudio = require("../sounds/success.mp3");
+
 function KeyBoard({ octave, onKeyClick }) {
   function handleClick(e) {
     const value = e.currentTarget.getAttribute("data-value");
@@ -100,6 +102,7 @@ function Home() {
     let classToApplie = "";
     if (noteFromKeyboard === notesMarks[noteToCheckIndex].note) {
       classToApplie = styles.correctNote;
+      playAudio();
     } else {
       classToApplie = styles.wrongNote;
     }
@@ -113,6 +116,11 @@ function Home() {
     noteRemark.customClass = classToApplie;
     setMyList(myNextList);
   }
+
+  function playAudio() {
+    document.getElementById("audioTag").play();
+  }
+
   const notesElements = notesMarks.map((note) => (
     <span key={note.note}>
       =<Note note={note}></Note>
@@ -125,6 +133,7 @@ function Home() {
   return (
     <div>
       <h1 className={styles.fontM}>{notesElements}</h1>
+      <audio src={myAudio} id="audioTag" />
       <div className={styles.keyboardContent}>
         <KeyBoard
           className={styles.keyBoardItem}

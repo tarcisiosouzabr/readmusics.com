@@ -1,6 +1,7 @@
 import styles from "styles/styles.module.css";
 import "styles/styles.module.css";
 import React, { useState } from "react";
+import Modal from "components/modal";
 
 const successAudio = require("../sounds/success.mp3");
 const failAudio = require("../sounds/fail.mp3");
@@ -94,6 +95,7 @@ function Home() {
 
   const [notesMarks, setMyList] = useState(initialNotesMarks);
   const [noteToCheckIndex, setNoteIndex] = useState(1);
+  const [showModal, setShowModal] = React.useState(false);
 
   function onKeyClick(octave, keyValue) {
     if (noteToCheckIndex >= notesMarks.length) {
@@ -107,6 +109,7 @@ function Home() {
     } else {
       classToApplie = styles.wrongNote;
       playFail();
+      setShowModal(true);
     }
     updateNoteMarksList(notesMarks[noteToCheckIndex].note, classToApplie);
     setNoteIndex(noteToCheckIndex + 1);
@@ -136,8 +139,10 @@ function Home() {
   function Note({ note }) {
     return <span className={note.customClass}>{note.noteRemark}</span>;
   }
+
   return (
     <div>
+      <Modal showModal={showModal} onClose={() => setShowModal(false)}></Modal>
       <h1 className={styles.fontM}>{notesElements}</h1>
       <audio src={successAudio} id="successAudioTag" />
       <audio src={failAudio} id="failAudioTag" />

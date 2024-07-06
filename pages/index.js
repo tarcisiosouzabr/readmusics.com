@@ -96,6 +96,7 @@ function Home() {
   const [notesMarks, setMyList] = useState(initialNotesMarks);
   const [noteToCheckIndex, setNoteIndex] = useState(1);
   const [showModal, setShowModal] = React.useState(false);
+  const [modalBodyText, setModalBodyText] = React.useState("");
 
   function onKeyClick(octave, keyValue) {
     if (noteToCheckIndex >= notesMarks.length) {
@@ -109,6 +110,7 @@ function Home() {
     } else {
       classToApplie = styles.wrongNote;
       playFail();
+      setModalBodyText("You Failed!");
       setShowModal(true);
     }
     updateNoteMarksList(notesMarks[noteToCheckIndex].note, classToApplie);
@@ -142,7 +144,11 @@ function Home() {
 
   return (
     <div>
-      <Modal showModal={showModal} onClose={() => setShowModal(false)}></Modal>
+      <Modal
+        showModal={showModal}
+        bodyText={modalBodyText}
+        onClose={() => setShowModal(false)}
+      ></Modal>
       <h1 className={styles.fontM}>{notesElements}</h1>
       <audio src={successAudio} id="successAudioTag" />
       <audio src={failAudio} id="failAudioTag" />

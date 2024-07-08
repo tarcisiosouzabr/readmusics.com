@@ -95,10 +95,18 @@ function Home() {
 
   const [notesMarks, setMyList] = useState(initialNotesMarks);
   const [noteToCheckIndex, setNoteIndex] = useState(1);
+  const [correctAmount, setCorrectAmount] = useState(1);
   const [showModal, setShowModal] = React.useState(false);
   const [modalBodyText, setModalBodyText] = React.useState("");
 
   function onKeyClick(octave, keyValue) {
+    console.log(noteToCheckIndex);
+    console.log(notesMarks.length);
+    if (noteToCheckIndex == notesMarks.length - 1) {
+      let correctTotal = (100 * correctAmount) / (notesMarks.length - 1);
+      setModalBodyText(`Você acertou ${correctTotal.toFixed(0)}%`);
+      setShowModal(true);
+    }
     if (noteToCheckIndex >= notesMarks.length) {
       return;
     }
@@ -107,11 +115,10 @@ function Home() {
     if (noteFromKeyboard === notesMarks[noteToCheckIndex].note) {
       classToApplie = styles.correctNote;
       playSuccess();
+      setCorrectAmount(correctAmount + 1);
     } else {
       classToApplie = styles.wrongNote;
       playFail();
-      setModalBodyText("You Failed!");
-      setShowModal(true);
     }
     updateNoteMarksList(notesMarks[noteToCheckIndex].note, classToApplie);
     setNoteIndex(noteToCheckIndex + 1);

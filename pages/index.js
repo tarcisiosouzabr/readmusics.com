@@ -6,7 +6,7 @@ import Modal from "components/modal";
 const successAudio = require("../sounds/success.mp3");
 const failAudio = require("../sounds/fail.mp3");
 
-function KeyBoard({ octave, onKeyClick }) {
+function KeyBoard({ octave, onKeyClick, isMiddleC }) {
   function handleClick(e) {
     const value = e.currentTarget.getAttribute("data-value");
     onKeyClick(octave, value);
@@ -17,7 +17,9 @@ function KeyBoard({ octave, onKeyClick }) {
         onClick={handleClick}
         data-value="C"
         className={[styles.key, styles.white, styles.c].join(" ")}
-      ></li>
+      >
+        {isMiddleC ? <p className={styles.middleCNote}>Dó Central</p> : ""}{" "}
+      </li>
       <li
         onClick={handleClick}
         data-value="Cs"
@@ -156,7 +158,9 @@ function Home() {
         bodyText={modalBodyText}
         onClose={() => setShowModal(false)}
       ></Modal>
-      <h1 className={styles.fontM}>{notesElements}</h1>
+      <h1 className={styles.fontM + " flex items-center justify-center"}>
+        {notesElements}
+      </h1>
       <audio src={successAudio} id="successAudioTag" />
       <audio src={failAudio} id="failAudioTag" />
       <div className={styles.keyboardContent}>
@@ -164,11 +168,13 @@ function Home() {
           className={styles.keyBoardItem}
           onKeyClick={onKeyClick}
           octave={"C1"}
+          isMiddleC={true}
         ></KeyBoard>
         <KeyBoard
           className={styles.keyBoardItem}
           onKeyClick={onKeyClick}
           octave={"C2"}
+          isMiddleC={false}
         ></KeyBoard>
       </div>
     </div>

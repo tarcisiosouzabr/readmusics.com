@@ -136,3 +136,8 @@ ul .white:active {
 .wrongNote {
   color: red;
 }
+
+.middleCNote {
+  position: absolute;
+  bottom: 0;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Modal({ showModal, onClose, bodyText }) {
+export default function Modal({ showModal, onClose, bodyText, onNext }) {
   return (
     <>
       {showModal ? (
@@ -36,13 +36,13 @@ export default function Modal({ showModal, onClose, bodyText }) {
                   >
                     Fechar
                   </button>
-                  {/* <button
+                  <button
                     className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={onClose}
+                    onClick={onNext}
                   >
-                    Save Changes
-                  </button> */}
+                    Tentar De Novo
+                  </button>
                 </div>
               </div>
             </div>

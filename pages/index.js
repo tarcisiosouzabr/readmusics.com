@@ -151,12 +151,20 @@ function Home() {
     return <span className={note.customClass}>{note.noteRemark}</span>;
   }
 
+  function tryAgain() {
+    setShowModal(false);
+    setMyList(initialNotesMarks);
+    setNoteIndex(1);
+    setCorrectAmount(1);
+  }
+
   return (
     <div>
       <Modal
         showModal={showModal}
         bodyText={modalBodyText}
         onClose={() => setShowModal(false)}
+        onNext={tryAgain}
       ></Modal>
       <h1 className={styles.fontM + " flex items-center justify-center"}>
         {notesElements}

@@ -97,33 +97,39 @@ function Home() {
 
   const [notesMarks, setMyList] = useState(initialNotesMarks);
   const [noteToCheckIndex, setNoteIndex] = useState(1);
-  const [correctAmount, setCorrectAmount] = useState(1);
+  const [correctAmount, setCorrectAmount] = useState(0);
   const [showModal, setShowModal] = React.useState(false);
   const [modalBodyText, setModalBodyText] = React.useState("");
 
   function onKeyClick(octave, keyValue) {
-    console.log(noteToCheckIndex);
-    console.log(notesMarks.length);
-    if (noteToCheckIndex == notesMarks.length - 1) {
-      let correctTotal = (100 * correctAmount) / (notesMarks.length - 1);
-      setModalBodyText(`Você acertou ${correctTotal.toFixed(0)}%`);
-      setShowModal(true);
-    }
     if (noteToCheckIndex >= notesMarks.length) {
       return;
     }
     let noteFromKeyboard = octave + keyValue;
     let classToApplie = "";
+    let nextCorrectAmount = correctAmount;
     if (noteFromKeyboard === notesMarks[noteToCheckIndex].note) {
       classToApplie = styles.correctNote;
       playSuccess();
-      setCorrectAmount(correctAmount + 1);
+      nextCorrectAmount = correctAmount + 1;
+      setCorrectAmount(nextCorrectAmount);
     } else {
       classToApplie = styles.wrongNote;
       playFail();
     }
     updateNoteMarksList(notesMarks[noteToCheckIndex].note, classToApplie);
-    setNoteIndex(noteToCheckIndex + 1);
+    const nextIndex = noteToCheckIndex + 1;
+    setNoteIndex(nextIndex);
+    checkIfGameFinished(nextIndex, nextCorrectAmount);
+  }
+
+  function checkIfGameFinished(nextIndex, correctAmount) {
+    if (nextIndex == notesMarks.length) {
+      debugger;
+      let correctTotal = (100 * correctAmount) / (notesMarks.length - 1);
+      setModalBodyText(`Você acertou ${correctTotal.toFixed(0)}%`);
+      setShowModal(true);
+    }
   }
 
   function updateNoteMarksList(noteFromKeyboard, classToApplie) {
@@ -155,7 +161,7 @@ function Home() {
     setShowModal(false);
     setMyList(initialNotesMarks);
     setNoteIndex(1);
-    setCorrectAmount(1);
+    setCorrectAmount(0);
   }
 
   return (

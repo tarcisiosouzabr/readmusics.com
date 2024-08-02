@@ -3,7 +3,7 @@ import "styles/styles.module.css";
 import React, { useState } from "react";
 import Modal from "components/modal";
 import KeyBoard from "components/keyboard";
-import SessionButton from "components/sessionButton";
+import NavBar from "components/navBar.js";
 
 const successAudio = require("../sounds/success.mp3");
 const failAudio = require("../sounds/fail.mp3");
@@ -95,7 +95,7 @@ function Home() {
 
   return (
     <div>
-      <SessionButton></SessionButton>
+      <NavBar></NavBar>
       <Modal
         showModal={showModal}
         bodyText={modalBodyText}

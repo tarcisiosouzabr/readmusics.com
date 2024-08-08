@@ -141,3 +141,9 @@ ul .white:active {
   position: absolute;
   bottom: 0;
 }
+
+.logoMain {
+  content: url("../img/readMusicsWhite.png");
+  height: 70px;
+  width: 70px;
+}

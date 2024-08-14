@@ -83,7 +83,11 @@ function Home() {
   ));
 
   function Note({ note }) {
-    return <span className={note.customClass}>{note.noteRemark}</span>;
+    return (
+      <span id={"n" + note.note} className={note.customClass}>
+        {note.noteRemark}
+      </span>
+    );
   }
 
   function tryAgain() {

@@ -23,7 +23,10 @@ export default function Modal({ showModal, onClose, bodyText, onNext }) {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                  <p
+                    id="gameResultTxt"
+                    className="my-4 text-blueGray-500 text-lg leading-relaxed"
+                  >
                     {bodyText}
                   </p>
                 </div>

@@ -134,7 +134,7 @@ ul .white:active {
 }
 
 .wrongNote {
-  color: red;
+  color: rgb(255, 0, 0);
 }
 
 .middleCNote {

@@ -84,7 +84,7 @@ function Home() {
 
   function Note({ note }) {
     return (
-      <span id={note.noteRemark + note.note} className={note.customClass}>
+      <span id={"n" + note.note} className={note.customClass}>
         {note.noteRemark}
       </span>
     );

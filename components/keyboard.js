@@ -10,6 +10,7 @@ export default function KeyBoard({ octave, onKeyClick, isMiddleC }) {
       <li
         onClick={handleClick}
         data-value="C"
+        id={octave + "C"}
         className={[styles.key, styles.white, styles.c].join(" ")}
       >
         {isMiddleC ? <p className={styles.middleCNote}>Dó Central</p> : ""}{" "}

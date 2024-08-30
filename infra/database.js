@@ -20,6 +20,11 @@ async function connect() {
   }
 }
 
+function getSequelize() {
+  return sequelize;
+}
+
 export default {
   connect,
+  getSequelize,
 };
